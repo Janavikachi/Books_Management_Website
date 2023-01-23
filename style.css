@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+:root {
+  --post-it-yellow: #ad3121;
+  --leather-brown: #db5656;
+  --leather-border: #401600;
+  --book-form-text: rgb(0, 0, 0);
+}
+html,
+body {
+  font-family: "Cutive Mono", monospace;
+  font-size: 20px;
+  margin: 0;
+}
+body {
+  padding: 20px;
+  background-color: var(--leather-border);
+  background-image: url(images/dark-wood.png);
+  border: 60px solid var(--leather-brown);
+  border-image: url(images/purty-wood.png) 10 round;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+p {
+  margin: 0;
+}
+#add-book-section {
+  width: 300px;
+  height: 75vh;
+  min-height: 350px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border: 2px solid var(--leather-border);
+  border-radius: 5px;
+  color: var(--book-form-text);
+  transition: transform 0.5s ease-in;
+  background-color: var(--leather-brown);
+  background-image: url(images/large-leather.png) round;
+}
+#add-book-form {
+  position: absolute;
+  padding: 60px;
+  left: 0;
+  font-weight: 900;
+}
+#add-book-section.hidden {
+  transform: translateX(-95%);
+}
+#add-book-button,
+#sort-books-button {
+  font-family: inherit;
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: var(--post-it-yellow);
+  background-image: url(images/light-paper-fibers.png);
+  border: none;
+  margin-left: 2px;
+  padding: 16px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#sort-books-button {
+  transform: translateY(100%);
+  background-color: #f1aa4c;
+}
+#form-submit {
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  margin-top: 20px;
+}
+#form-submit:hover {
+  color: var(--post-it-yellow);
+  font-weight: 900;
+}
+#library-set {
+  display: grid;
+  -ms-grid-columns: (1fr) [6];
+  grid-template-columns: repeat(6, 1fr);
+  /* min-width: min-content; */
+}
+.book-info {
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+  -ms-grid-rows: (1fr) [5];
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(5, 1fr);
+  text-align: center;
+  background: var(--book-form-text);
+  background: url(images/lined-paper-2.png),
+    linear-gradient(
+      180deg,
+      var(--book-form-text) 40%,
+      rgba(236, 231, 210, 1) 75%
+    );
+  -webkit-box-shadow: 2px 1px 4px 1px rgba(35, 26, 3, 0.25);
+  box-shadow: 2px 1px 4px 1px rgba(35, 26, 3, 0.25);
+  border-radius: 10px;
+  height: 350px;
+  min-width: 210px;
+  margin: 10px;
+  padding: 20px 10px;
+  font-size: 1rem;
+}
+.book-info span {
+  border-right: 4px double black;
+}
+.book-info .title {
+  border-bottom: 1px solid black;
+  width: 100%;
+  font-weight: 900;
+  align-self: end;
+}
+.book-info .author {
+  border-bottom: 4px double black;
+  width: 100%;
+  align-self: end;
+}
+.book-info .pages {
+  align-self: center;
+}
+button {
+  cursor: pointer;
+}
+.read {
+  margin-top: -20px;
+  cursor: pointer;
+}
+.have-not-read-icon {
+  background: url(images/label.png) no-repeat 50% 50%;
+  background-size: auto 75px;
+}
+.have-not-read-icon:hover {
+  background: url(images/label-red.png) no-repeat 50% 50%;
+  background-size: auto 75px;
+}
+.have-read-icon {
+  background: url(images/check.png) no-repeat 50% 50%;
+  background-size: auto 75px;
+}
+.have-read-icon:hover {
+  background: url(images/check-green.png) no-repeat 50% 50%;
+  background-size: auto 75px;
+}
+.delete-button {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  -ms-grid-row-span: 1;
+  grid-column: 1/3;
+  grid-row: 5;
+  background-color: transparent;
+  margin-top: 32px;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.attribution {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+.attribution a {
+  color: inherit;
+  text-decoration: none;
+}
+.attribution a:hover {
+  color: var(--post-it-yellow);
+}
+/* Media Queries */
+@media only screen and (max-width: 1600px) {
+  #library-set {
+    -ms-grid-columns: (1fr) [4];
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #library-set {
+    -ms-grid-columns: (1fr) [3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #library-set {
+    -ms-grid-columns: (1fr) [2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    border-width: 40px;
+  }
+  #library-set {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  #add-book-section.hidden {
+    transform: translateX(-100%);
+  }
+}
